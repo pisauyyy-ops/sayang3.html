@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Ardi 💜</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#08000d;
+    color:white;
+    overflow:hidden;
+}
+
+/* BACKGROUND */
+.bg{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 15% 20%,#a855f7 0%,transparent 25%),
+    radial-gradient(circle at 85% 80%,#7e22ce 0%,transparent 25%),
+    radial-gradient(circle at 50% 50%,#4c1d95 0%,transparent 30%),
+    #08000d;
+    z-index:-5;
+}
+
+/* BINTANG */
+.star{
+    position:fixed;
+    color:#fff;
+    opacity:.7;
+    animation:twinkle 2s infinite alternate;
+    z-index:-3;
+}
+
+@keyframes twinkle{
+    from{opacity:.2;transform:scale(.7)}
+    to{opacity:1;transform:scale(1.3)}
+}
+
+/* HEART JATUH */
+.heart{
+    position:fixed;
+    color:#d946ef;
+    animation:jatuh linear forwards;
+    z-index:-1;
+    pointer-events:none;
+}
+
+@keyframes jatuh{
+    0%{
+        transform:translateY(-80px) rotate(0deg);
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* PAGE */
+.page{
+    width:100%;
+    min-height:100vh;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:22px;
+    text-align:center;
+}
+
+.page.active{
+    display:flex;
+    animation:fade .7s ease;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:scale(.95) translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+}
+
+/* CARD */
+.card{
+    width:100%;
+    max-width:440px;
+    padding:32px 24px;
+    border:1px solid #c084fc;
+    border-radius:30px;
+    background:rgba(15,3,25,.88);
+    box-shadow:
+    0 0 30px #7e22ce,
+    inset 0 0 30px rgba(168,85,247,.12);
+    backdrop-filter:blur(15px);
+}
+
+.small{
+    color:#d8b4fe;
+    font-size:12px;
+    letter-spacing:3px;
+}
+
+h1{
+    font-size:40px;
+    margin:15px 0;
+    color:#f3e8ff;
+    text-shadow:0 0 18px #c026d3;
+}
+
+h2{
+    color:#e9d5ff;
+    margin:15px 0;
+}
+
+p{
+    line-height:1.7;
+    color:#eee;
+}
+
+/* BUTTON */
+button{
+    margin-top:22px;
+    padding:13px 25px;
+    border:none;
+    border-radius:30px;
+    background:linear-gradient(135deg,#c026d3,#7e22ce);
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    box-shadow:0 0 18px #a855f7;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.07);
+}
+
+/* HEART BESAR */
+.big-heart{
+    font-size:75px;
+    animation:denyut 1.2s infinite;
+}
+
+@keyframes denyut{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.18)}
+}
+
+/* FOTO */
+.photo{
+    width:180px;
+    height:180px;
+    margin:20px auto;
+    border-radius:50%;
+    border:4px solid #c084fc;
+    box-shadow:0 0 25px #a855f7;
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* LETTER */
+.letter{
+    background:rgba(255,255,255,.06);
+    padding:20px;
+    border-radius:20px;
+    text-align:left;
+    margin-top:15px;
+}
+
+.letter p{
+    font-size:14px;
+}
+
+/* QUOTE */
+.quote{
+    font-size:17px;
+    font-style:italic;
+    color:#e9d5ff;
+    margin:20px 0;
+}
+
+/* INPUT PASSWORD */
+.password-box{
+    margin-top:20px;
+}
+
+.password-box input{
+    width:100%;
+    padding:14px;
+    border-radius:20px;
+    border:1px solid #c084fc;
+    outline:none;
+    background:rgba(255,255,255,.08);
+    color:white;
+    text-align:center;
+    font-size:16px;
+}
+
+.password-box input::placeholder{
+    color:#aaa;
+}
+
+.error{
+    color:#f0abfc;
+    font-size:13px;
+    margin-top:12px;
+    display:none;
+}
+
+/* MENU DOT */
+.dots{
+    position:fixed;
+    bottom:12px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:5px;
+    z-index:10;
+}
+
+.dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:#6b21a8;
+}
+
+.dot.active{
+    background:#e879f9;
+    box-shadow:0 0 8px #e879f9;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:20px;
+    color:#a78bfa;
+    font-size:12px;
+}
+
+/* TIMER */
+.timer{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin:20px 0;
+}
+
+.time-box{
+    background:rgba(255,255,255,.08);
+    padding:12px;
+    border-radius:15px;
+    min-width:60px;
+}
+
+.time-box b{
+    display:block;
+    font-size:20px;
+    color:#e9d5ff;
+}
+
+/* GALLERY */
+.gallery{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    margin-top:15px;
+}
+
+.gallery div{
+    height:100px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#581c87,#a855f7);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+}
+
+/* SECRET */
+.secret{
+    padding:20px;
+    border-radius:20px;
+    border:1px dashed #c084fc;
+    background:rgba(192,132,252,.08);
+}
+
+/* TYPE */
+.type{
+    min-height:80px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<!-- BINTANG -->
+<script>
+for(let i=0;i<35;i++){
+    const star=document.createElement("div");
+    star.className="star";
+    star.innerHTML="✦";
+    star.style.left=Math.random()*100+"vw";
+    star.style.top=Math.random()*100+"vh";
+    star.style.fontSize=(Math.random()*8+5)+"px";
+    star.style.animationDelay=Math.random()*2+"s";
+    document.body.appendChild(star);
+}
+</script>
+
+
+<!-- ============================= -->
+<!-- HALAMAN 0 : PASSWORD -->
+<!-- ============================= -->
+
+<section class="page active" id="page0">
+<div class="card">
+
+    <div class="small">PRIVATE MESSAGE 🔐</div>
+
+    <div class="big-heart">🔐</div>
+
+    <h1>For aydiiiiii</h1>
+
+    <p>
+        website kecil ini hanya bisa dibuka
+        oleh orang yang tahu tanggal spesial kita. 💜
+    </p>
+
+    <div class="password-box">
+
+        <input
+        type="password"
+        id="password"
+        placeholder="masukkan tanggal spesial kita!"
+        inputmode="numeric">
+
+        <button onclick="checkPassword()">
+           open 💜
+        </button>
+
+        <div class="error" id="error">
+            Hmm... tanggalnya salah 🥺
+        </div>
+
+    </div>
+
+    <p class="footer">
+         MY LOVE
+    </p>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 1 -->
+
+<section class="page" id="page1">
+<div class="card">
+
+    <div class="small">A LITTLE SURPRISE FOR</div>
+
+    <div class="big-heart">💜</div>
+
+    <h1>aydi sayang</h1>
+
+    <p>
+        ada sesuatu kecil yang aku buat
+        khusus buat kamu...
+    </p>
+
+    <button onclick="nextPage(2)">
+        buka Surprise 💋
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 2 -->
+
+<section class="page" id="page2">
+<div class="card">
+
+    <div class="small">WELCOME</div>
+
+    <h2>Hai aydi 💜</h2>
+
+    <p class="type" id="typing"></p>
+
+    <button onclick="nextPage(3)">
+        Lanjut 💌
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 3 -->
+
+<section class="page" id="page3">
+<div class="card">
+
+    <div class="small">ABOUT YOU</div>
+
+    <h2>kenapa Kamu? 🌷</h2>
+
+    <div class="letter">
+
+        <p>
+            akuuuu sukaaaa caraaaa kamuuuu membuatttt hariii-harikuuuu terasaaaa lebihhhh berartiiii🫶🏻💗. semogaaaa kamuuuu selaluuuu bahagiaaaa, selaluuu dikelilingiiii halll-hal baikkkk yaaa sayanggg🫂💞, dannnn jangannnn pernahhhh lupaaa kalauuuu kamuuuu adalahhhh seseorangggg yangggg sangatttt-sangatttt berartiii buatt akuuu😚💋💕. love youuu sayanggg🤍.
+        </p>
+
+    </div>
+
+    <button onclick="nextPage(4)">
+        Lanjut 💗
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 4 -->
+
+<section class="page" id="page4">
+<div class="card">
+
+    <div class="big-heart">🫶🏻</div>
+
+    <h2>Terima Kasih</h2>
+
+    <p>
+        timakasiii sudahhh hadirrrr dannn menjadiii bagiannn dariiii hidupkuuu☺️🤍.
+            akuuu mungkinnn nggaaa selaluuu pandaiiii menunjukkannn rasaaa sayanggg🫂💞, tapiii 
+            akuuuu benarrr-benarrrr menghargaiiiii setiapppp hallll kecillll yanggg kamuu lakukannn🌷💗
+    </p>
+
+    <button onclick="nextPage(5)">
+        Next ✨
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 5 -->
+
+<section class="page" id="page5">
+<div class="card">
+
+    <div class="small">LITTLE THINGS</div>
+
+    <h2>hal kecil tentang kamu 💜</h2>
+
+    <div class="gallery">
+        <div>💗</div>
+        <div>🤍</div>
+        <div>💋</div>
+        <div>💞</div>
+    </div>
+
+    <p style="margin-top:15px">
+        mungkin sederhana,
+        tapi justru hal-hal kecil itu
+        yang membuat kamu spesial.
+    </p>
+
+    <button onclick="nextPage(6)">
+        Lanjut
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 6 -->
+
+<section class="page" id="page6">
+<div class="card">
+
+    <div class="small">MY FAVORITE</div>
+
+    <h2>yang Aku Suka Dari Kamu</h2>
+
+    <div class="letter">
+
+        <p>♡ caraaa kamuu memperhatikann akuuu</p>
+        <p>♡ caraaa kamuuu membuattt akuuu nyamannn</p>
+        <p>♡ caraaa kamuuu ngobrolll dengan akuuu</p>
+        <p>♡ senyummm dannn tingkahhh kecil kamuuu</p>
+        <p>♡ kamuuu yanggg tetappp jadiii dirimuuu sendiriii</p>
+
+    </div>
+
+    <button onclick="nextPage(7)">
+        masih ada 💗
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 7 -->
+
+<section class="page" id="page7">
+<div class="card">
+
+    <div class="big-heart">🩷</div>
+
+    <h2>One Little Reminder</h2>
+
+    <p>
+        kalau suatu hari kamu merasa
+        tidak cukup baik...
+    </p>
+
+    <div class="quote">
+        "ingat bahwa kamu tetap seseorang
+        yang sangat berarti buat aku."
+    </div>
+
+    <button onclick="nextPage(8)">
+        Lanjut
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 8 -->
+
+<section class="page" id="page8">
+<div class="card">
+
+    <div class="small">OUR STORY</div>
+
+    <h2>tentang Kita 📖</h2>
+
+    <p>
+        aku suka bagaimana semuanya berjalan dengan sederhana.
+    dari awal yang mungkin biasa saja, sampai akhirnya kamu menjadi
+    seseorang yang punya tempat sendiri di hati aku💜.
+    </p>
+
+    <br>
+
+    <p>
+         aku senang bisa menjalani
+        bagian cerita ini bersama kamu.
+    </p>
+
+    <button onclick="nextPage(9)">
+        Lanjut 🌷
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 9 -->
+
+<section class="page" id="page9">
+<div class="card">
+
+    <div class="small">OUR MOMENTS</div>
+
+    <h2>Momen Sederhana 💫</h2>
+
+    <p>
+        buat aku, yang membuat sebuah momen berarti
+    bukan seberapa besar kejadiannya,
+    tapi dengan siapa aku menjalaninya🫶🏻.
+    </p>
+
+    <button onclick="nextPage(10)">
+        Next 💜
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 10 -->
+
+<section class="page" id="page10">
+<div class="card">
+
+    <div class="small">OUR FUTURE</div>
+
+    <h2>Semoga Nanti...</h2>
+
+    <p>
+        semoga masih ada banyak hari
+        di mana kita bisa tertawa,
+        bercerita,
+        saling mendukung,
+        dan membuat kenangan baru.
+    </p>
+
+    <div class="quote">
+        "Satu hari, dua hari,
+        bahkan selamanya."
+    </div>
+
+    <button onclick="nextPage(11)">
+        Lanjut ✨
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 11 -->
+
+<section class="page" id="page11">
+<div class="card">
+
+    <div class="small">A MESSAGE FOR YOU</div>
+
+    <h2>Kalau Kamu Baca Ini...</h2>
+
+    <div class="secret">
+
+        <p>
+            jangan lupa senyum yaa sayangggg. 😆
+        </p>
+
+        <br>
+
+        <p>
+            karenaaa adaaa seseoranggg diii siniii
+            yanggg senanggg melihattt kamuuu bahagiaaa.
+        </p>
+
+    </div>
+
+    <button onclick="nextPage(12)">
+        buka Pesan Rahasia 💌
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 12 -->
+
+<section class="page" id="page12">
+<div class="card">
+
+    <div class="big-heart">💗</div>
+
+    <h2>Pesan Rahasia</h2>
+
+    <div class="letter">
+
+        <p>
+    sebenernya aku cuma mau bilang makasih udah selalu ada.
+    makasih juga udah mau nemenin aku sampai sekarang.
+</p><br><p>
+    aku seneng bisa kenal sama kamu dan punya banyak cerita bareng.
+    semoga kita bisa terus baik-baik dan bikin banyak cerita lagi.
+</p><br><p>
+    jangan lupa ya, aku sayang sama kamu. 💜
+</p>
+    </div>
+
+    <button onclick="nextPage(13)">
+        Lanjut 🥺
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 13 -->
+
+<section class="page" id="page13">
+<div class="card">
+
+    <div class="small">A WISH FOR US</div>
+
+    <h2>Harapanku 💜</h2>
+
+    <<p>
+    aku berharap kita bisa terus bareng dan tetap nyaman
+    satu sama lain. semoga kita bisa saling ngerti,
+    saling jaga, dan nggak gampang nyerah kalau ada masalah.
+</p><br><p>
+    semoga ke depannya ada banyak hal baik yang kita lewatin
+    bareng, banyak cerita baru, dan tentunya lebih banyak
+    momen yang bikin kita senyum.
+</p><br><p>
+    semoga kita tetap jadi kita, sesederhana itu. 💜
+</p>
+
+    <br>
+
+    <p>
+        Semoga semua hal baik
+        datang kepada kamu.
+    </p>
+
+    <button onclick="nextPage(14)">
+        Satu lagi ✨
+    </button>
+
+</div>
+</section>
+
+
+<!-- HALAMAN 14 -->
+
+<section class="page" id="page14">
+<div class="card">
+
+    <div class="small">THE LAST PAGE</div>
+
+    <div class="big-heart">🫶🏻</div>
+
+    <h2>For You, gantengnya aku</h2>
+
+    <p>
+        terima kasih sudah menjadi bagian
+        dari cerita hidup aku.
+    </p>
+
+    <br>
+
+    <h1>LOVE YOU SAYANG💜</h1>
+
+    <p>
+        jangan lupa...
+        kamu kesayangan aku.
+    </p>
+
+    <p class="footer">
+        from : pisa ♡
+    </p>
+
+</div>
+</section>
+
+
+<!-- DOTS -->
+
+<div class="dots" id="dots"></div>
+
+
+<script>
+
+/* ===================================
+   PASSWORD
+   =================================== */
+
+/*
+   GANTI ANGKA DI BAWAH DENGAN
+   TANGGAL JADIAN KALIAN.
+
+   FORMAT:
+   DDMMYYYY
+
+   Contoh:
+   1 Januari 2026
+   = 01012026
+*/
+
+const PASSWORD = "30052025";
+
+
+function checkPassword(){
+
+    const input =
+    document.getElementById("password").value;
+
+    const error =
+    document.getElementById("error");
+
+    if(input === PASSWORD){
+
+        error.style.display = "none";
+
+        nextPage(1);
+
+        createExplosion();
+
+    }else{
+
+        error.style.display = "block";
+
+    }
+}
+
+
+/* ENTER UNTUK MEMBUKA */
+
+document.getElementById("password")
+.addEventListener("keypress",function(e){
+
+    if(e.key === "Enter"){
+        checkPassword();
+    }
+
+});
+
+
+/* ===================================
+   PINDAH HALAMAN
+   =================================== */
+
+let currentPage = 0;
+
+
+function nextPage(number){
+
+    document.querySelectorAll(".page")
+    .forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    const target =
+    document.getElementById("page"+number);
+
+    if(target){
+        target.classList.add("active");
+        currentPage = number;
+    }
+
+    window.scrollTo(0,0);
+
+    updateDots();
+
+}
+
+
+/* ===================================
+   DOT INDICATOR
+   =================================== */
+
+function updateDots(){
+
+    const dots =
+    document.getElementById("dots");
+
+    dots.innerHTML = "";
+
+    if(currentPage === 0){
+        dots.style.display = "none";
+        return;
+    }
+
+    dots.style.display = "flex";
+
+    for(let i=1;i<=14;i++){
+
+        const dot =
+        document.createElement("div");
+
+        dot.className = "dot";
+
+        if(i === currentPage){
+            dot.classList.add("active");
+        }
+
+        dots.appendChild(dot);
+    }
+}
+
+
+/* ===================================
+   HATI JATUH
+   =================================== */
+
+function createHeart(){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className = "heart";
+
+    const icons =
+    ["💜","💗","💖","♡","✨","🌷"];
+
+    heart.innerHTML =
+    icons[Math.floor(Math.random()*icons.length)];
+
+    heart.style.left =
+    Math.random()*100+"vw";
+
+    heart.style.fontSize =
+    (Math.random()*18+12)+"px";
+
+    heart.style.animationDuration =
+    (Math.random()*4+4)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+}
+
+setInterval(createHeart,450);
+
+
+/* ===================================
+   TYPING EFFECT
+   =================================== */
+
+const text =
+"aku cuma mau bilang kalau aku senang bisa kenal dan punya kamu di hidup aku. terima kasih sudah menjadi bagian dari hari-hariku. 💜";
+
+let typingStarted = false;
+
+function startTyping(){
+
+    if(typingStarted) return;
+
+    typingStarted = true;
+
+    const element =
+    document.getElementById("typing");
+
+    let i=0;
+
+    function type(){
+
+        if(i<text.length){
+
+            element.innerHTML += text.charAt(i);
+
+            i++;
+
+            setTimeout(type,35);
+
+        }
+
+    }
+
+    type();
+}
+
+
+/* ===================================
+   EXPLOSION HEART
+   =================================== */
+
+function createExplosion(){
+
+    for(let i=0;i<25;i++){
+
+        const heart =
+        document.createElement("div");
+
+        heart.innerHTML =
+        ["💜","💗","💖","✨"]
+        [Math.floor(Math.random()*4)];
+
+        heart.style.position="fixed";
+        heart.style.left="50%";
+        heart.style.top="50%";
+        heart.style.fontSize="22px";
+        heart.style.zIndex="100";
+
+        const x =
+        (Math.random()-0.5)*500;
+
+        const y =
+        (Math.random()-0.5)*500;
+
+        heart.animate([
+
+            {
+                transform:"translate(-50%,-50%) scale(0)",
+                opacity:1
+            },
+
+            {
+                transform:
+                `translate(${x}px,${y}px) scale(1.5)`,
+                opacity:0
+            }
+
+        ],{
+
+            duration:1200,
+            easing:"ease-out"
+
+        });
+
+        document.body.appendChild(heart);
+
+        setTimeout(()=>{
+            heart.remove();
+        },1300);
+    }
+}
+
+
+/* ===================================
+   DETEKSI HALAMAN 2
+   =================================== */
+
+const observer =
+new MutationObserver(()=>{
+
+    if(
+        document
+        .getElementById("page2")
+        .classList
+        .contains("active")
+    ){
+
+        startTyping();
+
+    }
+
+});
+
+observer.observe(
+    document.body,
+    {
+        attributes:true,
+        subtree:true
+    }
+);
+
+
+/* ===================================
+   SWIPE HP
+   =================================== */
+
+let touchStartX = 0;
+let touchEndX = 0;
+
+document.addEventListener(
+"touchstart",
+function(e){
+
+    touchStartX =
+    e.changedTouches[0].screenX;
+
+});
+
+document.addEventListener(
+"touchend",
+function(e){
+
+    touchEndX =
+    e.changedTouches[0].screenX;
+
+    const difference =
+    touchEndX-touchStartX;
+
+    /*
+      Swipe kiri = halaman berikutnya
+    */
+
+    if(difference < -100 && currentPage >= 1){
+
+        if(currentPage < 14){
+
+            nextPage(currentPage+1);
+
+        }
+
+    }
+
+    /*
+      Swipe kanan = halaman sebelumnya
+    */
+
+    if(difference > 100 && currentPage > 1){
+
+        nextPage(currentPage-1);
+
+    }
+
+});
+
+
+/* MULAI DOT */
+
+updateDots();
+
+</script>
+
+</body>
+</html>
